@@ -14,9 +14,11 @@
     <tr>
         <td>@Model.TransactionID</td>
         <td>@Model.TransactionDate</td>
-        <td>@Model.TrnsactionType</td>
+        <td>@Model.TransactionType</td>
         <td>@Model.Category</td>
         <td>@Model.Amount</td>
         <td>@Model.Description</td>
     </tr>
 </table>
+
+<a href="/FinancialTransactions/UpdateTransaction/@Model.TransactionID">Update this Transaction</a>

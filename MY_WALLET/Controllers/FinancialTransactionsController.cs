@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MY_WALLET.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -29,6 +30,24 @@ namespace MY_WALLET.Controllers
             var transaction = repo.GetTransaction(id);
             return View(transaction);
         }
+
+        public IActionResult UpdateTransaction(int id)
+        {
+            FinancialTransactions ta = repo.GetTransaction(id);
+            if (ta == null)
+            {
+                return View("TransactionNotFound");
+            }
+            return View(ta);
+        }
+
+        public IActionResult UpdateTransactionToDatabase(FinancialTransactions transaction)
+        {
+            repo.UpdateTransaction(transaction);
+
+            return RedirectToAction("ViewTransaction", new { id = transaction.TransactionID });
+        }
+
     }
 }
 
