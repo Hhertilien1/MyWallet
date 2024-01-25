@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Transactions;
 using Dapper;
 using MY_WALLET.Models;
+using Mysqlx.Crud;
 
 namespace MY_WALLET
 {
@@ -26,8 +29,9 @@ namespace MY_WALLET
 
         public void UpdateTransaction(FinancialTransactions tranaction)
         {
-            _conn.Execute("UPDATE FinancialTransactions SET TransactionType = @TransactionType, TransactionDate = @TransactionDate, Category = @Category, Amount = @Amount, Description = @Description WHERE TransactionID = @id",
-            new { TransactionDate = tranaction.TransactionDate, TransactionType = tranaction.TransactionType, id = tranaction.TransactionID, Category = tranaction.Category, Amount = tranaction.Amount });
+            _conn.Execute("UPDATE FinancialTransactions SET Amount = @Amount, Description = @Description, Category = @Category WHERE TransactionID = @id"
+,
+            new {id = tranaction.TransactionID, Description = tranaction.Description, Category = tranaction.Category, Amount = tranaction.Amount });
         }
     }
 }
