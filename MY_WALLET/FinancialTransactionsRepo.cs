@@ -18,6 +18,11 @@ namespace MY_WALLET
         {
             return _conn.Query<FinancialTransactions>("SELECT * FROM FinancialTransactions;");
         }
+
+        public FinancialTransactions GetTransaction(int id)
+        {
+            return _conn.QuerySingle<FinancialTransactions>("SELECT * FROM FinancialTransactions WHERE TransactionID = @id", new { id = id });
+        }
     }
 }
 

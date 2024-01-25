@@ -1,0 +1,22 @@
+﻿@model FinancialTransactions
+
+<h3>@Model.TransactionID Information</h3>
+
+<table class="table">
+    <tr>
+        <th>Transaction ID</th>
+        <th>Transaction Date</th>
+        <th>Transaction Type</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>@Model.TransactionID</td>
+        <td>@Model.TransactionDate</td>
+        <td>@Model.TrnsactionType</td>
+        <td>@Model.Category</td>
+        <td>@Model.Amount</td>
+        <td>@Model.Description</td>
+    </tr>
+</table>

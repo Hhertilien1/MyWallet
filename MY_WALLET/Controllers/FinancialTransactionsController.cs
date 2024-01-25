@@ -23,6 +23,12 @@ namespace MY_WALLET.Controllers
             var transactions = repo.GetAllFinancialTransactions();
             return View(transactions);
         }
+
+        public IActionResult ViewTransaction(int id)
+        {
+            var transaction = repo.GetTransaction(id);
+            return View(transaction);
+        }
     }
 }
 

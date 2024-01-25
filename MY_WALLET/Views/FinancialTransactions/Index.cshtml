@@ -14,8 +14,7 @@
     @foreach (var transaction in @Model)
     {
         <tr>
-            <td>@transaction.TransactionID</td>
-            <td>@transaction.TransactionDate</td>
+            <td><a href=/FinancialTransactions/ViewTransaction/@transaction.TransactionID>@transaction.TransactionID</a></td>
             <td>@transaction.TrnsactionType</td>
             <td>@transaction.Category</td>
             <td>@transaction.Amount</td>
