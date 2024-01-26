@@ -9,7 +9,7 @@ namespace MY_WALLET
         public FinancialTransactions GetTransaction(int id);
         public void UpdateTransaction(FinancialTransactions tranaction);
         public void InsertTransaction(FinancialTransactions transactionToInsert);
-
+        public void DeleteTransaction(FinancialTransactions transaction);
     }
 
 

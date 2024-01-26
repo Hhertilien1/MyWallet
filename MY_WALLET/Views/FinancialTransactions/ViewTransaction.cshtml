@@ -22,3 +22,13 @@
 </table>
 
 <a href="/FinancialTransactions/UpdateTransaction/@Model.TransactionID">Update this Transaction</a>
+
+
+<div style="display: block">
+
+    @using (Html.BeginForm("DeleteTransaction", "FinancialTransactions", "Post"))
+    {
+        <input type="hidden" asp-for="TransactionID" value="@Model.TransactionID" />
+        <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this transaction" />
+    }
+</div>

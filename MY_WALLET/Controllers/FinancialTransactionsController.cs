@@ -58,6 +58,12 @@ namespace MY_WALLET.Controllers
         {
             return View(transactionToInsert);
         }
+
+        public IActionResult DeleteTransaction(FinancialTransactions transaction)
+        {
+            repo.DeleteTransaction(transaction);
+            return RedirectToAction("Index");
+        }
     }
 }
 

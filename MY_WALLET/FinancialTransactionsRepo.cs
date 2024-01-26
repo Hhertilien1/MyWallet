@@ -39,6 +39,12 @@ namespace MY_WALLET
             _conn.Execute("INSERT INTO FinancialTransactions (Amount, Description, Category, TransactionType, TransactionDate) VALUES (@Amount, @Description, @category, @TransactionType, @TransactionDate);",
                 new { Amount = transactionToInsert.Amount, Description = transactionToInsert.Description, Category = transactionToInsert.Category, TransactionType = transactionToInsert.TransactionType, TransactionDate = transactionToInsert.TransactionDate });
         }
+
+        public void DeleteTransaction(FinancialTransactions transaction)
+        {
+            _conn.Execute("DELETE FROM FinancialTransactions WHERE TransactionID = @id;", new { id = transaction.TransactionID });
+        }
+
     }
 }
 
