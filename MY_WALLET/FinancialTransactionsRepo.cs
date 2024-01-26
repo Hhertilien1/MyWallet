@@ -33,6 +33,12 @@ namespace MY_WALLET
 ,
             new {id = tranaction.TransactionID, Description = tranaction.Description, Category = tranaction.Category, Amount = tranaction.Amount });
         }
+
+        public void InsertTransaction(FinancialTransactions transactionToInsert)
+        {
+            _conn.Execute("INSERT INTO FinancialTransactions (Amount, Description, Category, TransactionType, TransactionDate) VALUES (@Amount, @Description, @category, @TransactionType, @TransactionDate);",
+                new { Amount = transactionToInsert.Amount, Description = transactionToInsert.Description, Category = transactionToInsert.Category, TransactionType = transactionToInsert.TransactionType, TransactionDate = transactionToInsert.TransactionDate });
+        }
     }
 }
 

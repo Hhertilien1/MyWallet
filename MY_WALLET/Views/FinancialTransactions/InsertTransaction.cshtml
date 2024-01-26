@@ -1,0 +1,25 @@
+﻿@model FinancialTransactions
+
+<h2>Create a New Transaction</h2>
+
+@using (Html.BeginForm("InsertTransactionToDatabase", "FinancialTransactions", "Post"))
+{
+    <input asp-for="TransactionID" type="hidden" value="" />
+
+    <label asp-for="TransactionDate" class="control-label">TransactionDate</label>
+    <input type="date" name="TransactionDate" class="form-control" value="" />
+
+    <label asp-for="TransactionType" class="control-label">TransactionType</label>
+    <input type="text" step="0.01" name="TransactionType" class="form-control" />
+
+    <label asp-for="Amount" class="control-label">Amount</label>
+    <input type="number" step="0.01" name="Amount" class="form-control" />
+
+    <label asp-for="Category" class="control-label">Category</label>
+    <input type="text" step="0.01" name="Category" class="form-control" />
+
+    <label asp-for="Description" class="control-label">Description</label>
+    <input type="text" step="0.01" name="Description" class="form-control" />
+
+    <input type="submit" value="Create Transaction" class="btn btn-primary" />
+}

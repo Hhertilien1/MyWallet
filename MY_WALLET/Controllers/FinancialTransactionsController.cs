@@ -48,6 +48,16 @@ namespace MY_WALLET.Controllers
             return RedirectToAction("ViewTransaction", new { id = transaction.TransactionID });
         }
 
+        public IActionResult InsertTransactionToDatabase(FinancialTransactions transactionToInsert)
+        {
+            repo.InsertTransaction(transactionToInsert);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult InsertTransaction(FinancialTransactions transactionToInsert)
+        {
+            return View(transactionToInsert);
+        }
     }
 }
 
