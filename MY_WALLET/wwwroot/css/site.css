@@ -41,3 +41,20 @@ a:hover{
     color: lightsalmon;
 }
 
+* {
+    font-family: "Abel", sans-serif;
+}
+
+h1 {
+    text-shadow: 1px 1px 2px black, 0 0 1em darkblue, 0 0 0.2em darkblue;
+    color: lightblue;
+    font: 1.5em Georgia, serif;
+/*    background-color: lightgrey;*/
+}
+
+#home {
+    background-image: url("images/home.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

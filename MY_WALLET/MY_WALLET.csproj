@@ -17,5 +17,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\FinancialTransactions\" />
+    <Folder Include="wwwroot\css\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\css\images\" />
   </ItemGroup>
 </Project>
