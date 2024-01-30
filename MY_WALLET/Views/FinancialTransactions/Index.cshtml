@@ -20,7 +20,16 @@
     {
         <tr>
             <td><a href=/FinancialTransactions/ViewTransaction/@transaction.TransactionID>@transaction.TransactionID</a></td>
-            <td>@transaction.TransactionType</td>
+            <td>@transaction.TransactionDate.ToString("MM-dd-yyyy")</td>
+            @if (transaction.TransactionType == "Income")
+            {
+
+                <td><span style="color:green;">@transaction.TransactionType</span></td>
+            }
+            else
+            {
+                <td><span style="color:red;">@transaction.TransactionType</span></td>
+            }
             <td>@transaction.Category</td>
             <td>@transaction.Amount</td>
             <td>@transaction.Description</td>

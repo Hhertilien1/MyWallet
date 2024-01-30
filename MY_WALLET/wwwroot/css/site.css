@@ -20,3 +20,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.navbar-nav .nav-link {
+    color: darkred !important;
+}
+
+.footer {
+    background-color: lightgray;
+}
+
+#pgHeader {
+    background-color: lightgray;
+}
+
+a{
+    color: darkred;
+}
+
+a:hover{
+    color: lightsalmon;
+}
+
