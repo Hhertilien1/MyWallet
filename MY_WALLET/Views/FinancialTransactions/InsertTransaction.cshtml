@@ -2,24 +2,46 @@
 
 <h2>Create a New Transaction</h2>
 
+<!--
+    This form allows users to insert a new financial transaction into the database.
+    Error handling is applied to ensure that the user inputs values that satisfy the model state.
+-->
+
 @using (Html.BeginForm("InsertTransactionToDatabase", "FinancialTransactions", "Post"))
 {
+    <!-- Hidden field for TransactionID -->
     <input asp-for="TransactionID" type="hidden" value="" />
 
-    <label asp-for="TransactionDate" class="control-label">TransactionDate</label>
+    <!-- Label and input field for TransactionDate -->
+    <label asp-for="TransactionDate" class="control-label">Transaction Date</label>
     <input type="date" name="TransactionDate" class="form-control" value="" />
+    <!-- Error message for TransactionDate -->
+    <span asp-validation-for="TransactionDate" class="text-danger"></span>
 
-    <label asp-for="TransactionType" class="control-label">TransactionType</label>
-    <input type="text" step="0.01" name="TransactionType" class="form-control" />
+    <!-- Label and input field for TransactionType -->
+    <label asp-for="TransactionType" class="control-label">Transaction Type</label>
+    <input type="text" name="TransactionType" class="form-control" />
+    <!-- Error message for TransactionType -->
+    <span asp-validation-for="TransactionType" class="text-danger"></span>
 
+    <!-- Label and input field for Amount -->
     <label asp-for="Amount" class="control-label">Amount</label>
     <input type="number" step="0.01" name="Amount" class="form-control" />
+    <!-- Error message for Amount -->
+    <span asp-validation-for="Amount" class="text-danger"></span>
 
+    <!-- Label and input field for Category -->
     <label asp-for="Category" class="control-label">Category</label>
-    <input type="text" step="0.01" name="Category" class="form-control" />
+    <input type="text" name="Category" class="form-control" />
+    <!-- Error message for Category -->
+    <span asp-validation-for="Category" class="text-danger"></span>
 
+    <!-- Label and input field for Description -->
     <label asp-for="Description" class="control-label">Description</label>
-    <input type="text" step="0.01" name="Description" class="form-control" />
+    <input type="text" name="Description" class="form-control" />
+    <!-- Error message for Description -->
+    <span asp-validation-for="Description" class="text-danger"></span>
 
+    <!-- Submit button -->
     <input type="submit" value="Create Transaction" class="btn btn-primary" />
 }

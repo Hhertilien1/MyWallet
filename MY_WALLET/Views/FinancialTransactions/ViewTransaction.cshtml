@@ -1,8 +1,15 @@
-﻿@model FinancialTransactions
+﻿<!--
+    This view displays detailed information about a single financial transaction.
+    It receives a single FinancialTransactions object as the model.
+-->
 
+@model FinancialTransactions
+<!-- Title displaying the TransactionID information -->
 <h3>@Model.TransactionID Information</h3>
 
+<!-- Table to display details of the transaction -->
 <table class="table">
+    <!-- Table header row -->
     <tr>
         <th>Transaction ID</th>
         <th>Transaction Date</th>
@@ -11,24 +18,33 @@
         <th>Amount</th>
         <th>Description</th>
     </tr>
+    <!-- Table row for the transaction -->
     <tr>
+        <!-- Displaying TransactionID -->
         <td>@Model.TransactionID</td>
+        <!-- Displaying TransactionDate formatted as MM-dd-yyyy -->
         <td>@Model.TransactionDate.ToString("MM-dd-yyyy")</td>
+        <!-- Displaying TransactionType -->
         <td>@Model.TransactionType</td>
+        <!-- Displaying Category -->
         <td>@Model.Category</td>
+        <!-- Displaying Amount -->
         <td>@Model.Amount</td>
+        <!-- Displaying Description -->
         <td>@Model.Description</td>
     </tr>
 </table>
 
+<!-- Link to update the transaction -->
 <a href="/FinancialTransactions/UpdateTransaction/@Model.TransactionID">Update this Transaction</a>
 
-
+<!-- Form for deleting the transaction -->
 <div style="display: block">
-
     @using (Html.BeginForm("DeleteTransaction", "FinancialTransactions", "Post"))
     {
+        <!-- Hidden field for TransactionID -->
         <input type="hidden" asp-for="TransactionID" value="@Model.TransactionID" />
+        <!-- Submit button to delete the transaction with confirmation message -->
         <input type="submit" onclick="return confirm('Are you sure?')" value="Delete this transaction" />
     }
 </div>

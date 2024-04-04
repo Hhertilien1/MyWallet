@@ -1,20 +1,32 @@
 ﻿@model FinancialTransactions
-
-<h2>Update @Model.TransactionID</h2>
+<!--
+    This form allows users to update an existing financial transaction in the database.
+    Error handling is applied to ensure that the user inputs values that satisfy the model state.
+-->
 
 @using (Html.BeginForm("UpdateTransactionToDatabase", "FinancialTransactions", "Post"))
 {
+    <!-- Hidden field for TransactionID -->
     <input asp-for="TransactionID" type="hidden" value="@Model.TransactionID" />
 
-
+    <!-- Label and input field for Description -->
     <label asp-for="Description" class="control-label">Description</label>
     <input type="text" name="Description" class="form-control" value="@Model.Description" />
+    <!-- Error message for Description -->
+    <span asp-validation-for="Description" class="text-danger"></span>
 
+    <!-- Label and input field for Category -->
     <label asp-for="Category" class="control-label">Category</label>
     <input type="text" name="Category" class="form-control" value="@Model.Category" />
+    <!-- Error message for Category -->
+    <span asp-validation-for="Category" class="text-danger"></span>
 
+    <!-- Label and input field for Amount -->
     <label asp-for="Amount" class="control-label">Amount</label>
     <input type="number" step="0.01" name="Amount" class="form-control" value="@Model.Amount" />
+    <!-- Error message for Amount -->
+    <span asp-validation-for="Amount" class="text-danger"></span>
 
+    <!-- Submit button -->
     <input type="submit" value="Update Transaction" class="btn btn-primary" />
 }

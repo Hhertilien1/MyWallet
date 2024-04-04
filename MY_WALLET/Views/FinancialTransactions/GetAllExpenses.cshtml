@@ -1,14 +1,22 @@
-﻿@model IEnumerable<FinancialTransactions>
+﻿<!--
+    This view displays a list of financial transactions.
+    It receives a list of FinancialTransactions as the model.
+-->
 
-<h2>FinancialTransactions</h2>
+@model IEnumerable<FinancialTransactions>
+<!-- Title for the page -->
+<h2>Expenses</h2>
 
+<!-- Links for creating a new transaction and viewing income -->
 <div style="display: block">
+    <a href="/FinancialTransactions/Index/">View All Transaction</a>
     <a href="/FinancialTransactions/InsertTransaction/">Create a New Transaction</a>
-    <a href="/FinancialTransactions/GetAllExpenses/">View Expenses</a>
     <a href="/FinancialTransactions/GetAllIncome/">View Income</a>
 </div>
 
+<!-- Table to display the list of financial transactions -->
 <table class="table">
+    <!-- Table header row -->
     <tr>
         <th>ID</th>
         <th>TransactionDate</th>
@@ -18,20 +26,25 @@
         <th>Description</th>
     </tr>
 
+    <!-- Loop through each transaction in the model -->
     @foreach (var transaction in @Model)
     {
+        <!-- Table row for each transaction -->
         <tr>
+            <!-- Link to view details of the transaction -->
             <td><a href=/FinancialTransactions/ViewTransaction/@transaction.TransactionID>@transaction.TransactionID</a></td>
+            <!-- Display transaction date -->
             <td>@transaction.TransactionDate.ToString("MM-dd-yyyy")</td>
+            <!-- Display transaction type with color based on whether it's income or expense -->
             @if (transaction.TransactionType == "Income")
             {
-
                 <td><span style="color:green;">@transaction.TransactionType</span></td>
             }
             else
             {
                 <td><span style="color:red;">@transaction.TransactionType</span></td>
             }
+            <!-- Display transaction category, amount, and description -->
             <td>@transaction.Category</td>
             <td>@transaction.Amount</td>
             <td>@transaction.Description</td>
